@@ -50,4 +50,105 @@ def print_x_times(msg,counts):
 print_x_times("XD",3)
 
 
+for m in range(1,10):
+    for n in range(1,10):
+        ans = m * n
+        if n == 9:
+            print(m , ' * ' , n , ' = ' , str(ans).rjust(2) , ' ')
+        else:
+            print(m, ' * ', n, ' = ', str(ans).rjust(2), ' ', end="")
+
+#tuple  內容無法修改   要修改請用list
+t = "a","bb","cc",1 ,2,3
+print (t)
+print (t[1])
+print (t.index("cc"))
+print(t[:2])
+
+if "a" in t:
+    print ('a' + ' is in the tuple t')
+
+
+#list
+
+l = ["a","bb","ccc",1,2,3,4,5]
+for i in l:
+    print(i)
+
+l.reverse()
+for i in l:
+    print(i)
+
+
+lst = []
+for i in range(1,10):
+    lst.append(i)
+
+for i in lst:
+    print(i)
+
+code = []
+for sex in 'MF':
+    for size in 'SMLX':
+        for color in 'RWBG':
+            code.append(sex+size+color)
+
+cnt = 0
+for i in code:
+    cnt = cnt + 1
+    print(cnt , ': ' , i)
+
+#map   dictionary
+
+nato = {'A':'alpha','B':'bravo','c':'charlie'}
+print(nato.get('A'))
+print(nato.keys())
+print(nato.values())
+nato.__setitem__('c','delta')
+print(nato.keys())
+print(nato.values())
+
+for i,j in enumerate(nato,2):
+    print(i)
+    print(j)
+    print(nato.get(j))
+
+# try except finally
+try:
+    print(t[100])
+    print('try')
+except Exception:
+    print('exception  happened !!!!!')
+    print(Exception)
+finally:
+    print('finally')
+
+
+class QqException(Exception):pass
+try:
+    print('try')
+    word = 'QQ1'
+    if word.__contains__('QQ'):
+        raise QqException()
+    else:
+        print('word doesn\'t contain QQ' )
+except QqException:
+    print('word contains QQ')
+finally:
+    print('finally')
+
+# read write file
+text = 'This is for reading and writing file.'
+my_test_file = open('testFile.txt','w')  # w for write
+my_test_file.write(text)
+my_test_file.close()
+
+append_text = '\nappend text test'
+my_test_file = open('testFile.txt','a')    # a for append
+my_test_file.write(append_text)
+my_test_file.close()
+
+file = open('testFile.txt','r')   # r for read
+content = file.read()
+print(content)
 
